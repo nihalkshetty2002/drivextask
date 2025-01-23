@@ -94,4 +94,4 @@ st.markdown("*Built with Streamlit and Groq AI*")
 # Run with specific port
 if __name__ == "__main__":
     os.environ['STREAMLIT_SERVER_PORT'] = '8501'
-    os.environ['STREAMLIT_SERVER_ADDRESS'] = 'localhost'
+    os.environ['STREAMLIT_SERVER_ADDRESS'] = '0.0.0.0'
