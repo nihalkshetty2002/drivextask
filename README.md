@@ -62,4 +62,10 @@ Fully responsive layout that adapts to different screen sizes.
 # Instruction for running the application locally
 1. Download the Zip file
 
-2. 
+2. Under .env file use "PASTE YOUR API KEY"
+
+3.Under Windowns bash run this command 
+# pip install -r requirements.txt
+
+4.Now run the application by using thi command
+# streamlit run app.py
