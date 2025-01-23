@@ -11,3 +11,8 @@ st.set_page_config(
     layout="wide"
 )
 
+# Initialize session state
+if 'messages' not in st.session_state:
+    st.session_state.messages = []
+if 'excel_content' not in st.session_state:
+    st.session_state.excel_content = None
