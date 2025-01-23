@@ -63,3 +63,35 @@ with st.sidebar:
             st.dataframe(df, use_container_width=True)
         except Exception as e:
             st.error(f"❌ Error reading file: {e}")
+
+# Main chat interface
+st.title("💬 AI Document Assistant")
+st.markdown("---")
+
+# Display chat messages
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.write(message["content"])
+
+# Chat input
+if prompt := st.chat_input("Type your message here..."):
+    # Add user message
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    with st.chat_message("user"):
+        st.write(prompt)
+
+    # Get and display assistant response
+    with st.chat_message("assistant"):
+        with st.spinner("Thinking..."):
+            response = get_model_response(prompt)
+            st.write(response)
+            st.session_state.messages.append({"role": "assistant", "content": response})
+
+# Footer
+st.markdown("---")
+st.markdown("*Built with Streamlit and Groq AI*")
+
+# Run with specific port
+if __name__ == "__main__":
+    os.environ['STREAMLIT_SERVER_PORT'] = '8501'
+    os.environ['STREAMLIT_SERVER_ADDRESS'] = 'localhost'
