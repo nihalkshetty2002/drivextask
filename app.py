@@ -16,3 +16,10 @@ if 'messages' not in st.session_state:
     st.session_state.messages = []
 if 'excel_content' not in st.session_state:
     st.session_state.excel_content = None
+
+# Load environment variables
+load_dotenv()
+api_key = os.getenv("API_KEY")
+if api_key is None:
+    st.error("API key not found. Please set the environment variable 'API_KEY'")
+    st.stop()
