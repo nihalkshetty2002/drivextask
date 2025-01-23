@@ -43,7 +43,7 @@ def get_model_response(user_input):
             messages=[{"role": "user", "content": prompt}],
             model="mixtral-8x7b-32768",
             temperature=0.2,
-            max_tokens=4096
+            max_tokens=32768
         )
 
         return chat_completion.choices[0].message.content
