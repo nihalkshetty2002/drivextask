@@ -49,3 +49,17 @@ def get_model_response(user_input):
         return chat_completion.choices[0].message.content
     except Exception as e:
         return f"Error: {str(e)}"
+
+# Sidebar for file upload
+with st.sidebar:
+    st.header("📁 Upload Excel File")
+    uploaded_file = st.file_uploader("Choose an Excel file", type=['xlsx', 'xls'])
+    
+    if uploaded_file:
+        try:
+            df = pd.read_excel(uploaded_file)
+            st.session_state.excel_content = df.to_string()
+            st.success("✅ File uploaded successfully!")
+            st.dataframe(df, use_container_width=True)
+        except Exception as e:
+            st.error(f"❌ Error reading file: {e}")
