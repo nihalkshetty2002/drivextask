@@ -69,3 +69,13 @@ Fully responsive layout that adapts to different screen sizes.
 
 4.Now run the application by using thi command
 # streamlit run app.py
+
+
+# Additional Details
+Model Limitations:
+When using the mixtral-8x7b-32768 model, it is important to note that there are constraints on the number of tokens that can be processed per request. If a request exceeds the token limit, the following error message will be displayed:
+
+sql Copy Edit Request too large for model mixtral-8x7b-32768 in organization org_01jhfq9hs8f80v1wpng94pcexh service tier on_demand on tokens per minute (TPM): Limit 5000, Requested 63733, please reduce your message size and try again.
+
+Cause: This error occurs when the token count in a request exceeds the allowed threshold of 5000 tokens per minute.
+Solution: To avoid this error, reduce the size of your input or split the content into smaller chunks before sending the request.
