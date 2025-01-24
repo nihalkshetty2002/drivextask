@@ -58,4 +58,3 @@ Model configuration: The app uses the mixtral-8x7b-32768 model, optimized for do
 10. Cross-Platform Accessibility
 Hosted locally using Streamlit, which allows users to interact with the app in their browser on localhost:8501.
 Fully responsive layout that adapts to different screen sizes.
-
