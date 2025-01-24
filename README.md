@@ -58,3 +58,24 @@ Model configuration: The app uses the mixtral-8x7b-32768 model, optimized for do
 10. Cross-Platform Accessibility
 Hosted locally using Streamlit, which allows users to interact with the app in their browser on localhost:8501.
 Fully responsive layout that adapts to different screen sizes.
+
+# Instruction for running the application locally
+1. Download the Zip file
+
+2. Under .env file use "PASTE YOUR API KEY"
+
+3.Under Windowns bash run this command 
+# pip install -r requirements.txt
+
+4.Now run the application by using thi command
+# streamlit run app.py
+
+
+# Additional Details
+Model Limitations:
+When using the mixtral-8x7b-32768 model, it is important to note that there are constraints on the number of tokens that can be processed per request. If a request exceeds the token limit, the following error message will be displayed:
+
+sql Copy Edit Request too large for model mixtral-8x7b-32768 in organization org_01jhfq9hs8f80v1wpng94pcexh service tier on_demand on tokens per minute (TPM): Limit 5000, Requested 63733, please reduce your message size and try again.
+
+Cause: This error occurs when the token count in a request exceeds the allowed threshold of 5000 tokens per minute.
+Solution: To avoid this error, reduce the size of your input or split the content into smaller chunks before sending the request.
